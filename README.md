@@ -13,16 +13,16 @@ Run the following commands to build docker images and load docker images to cont
 - docker-compose up
 
 # Manual test:
-- Open web site at http://localhost:8080/
+- Open web site at http://localhost/
 - On home page, select kuivuri.xml file from directory "web/data" and hit upload. Then, hit "Yes, confirm"
 
 # View data in MySQL, run 
 
 - docker exec -it <mysql_docker_container_name> /bin/bash  
 - Example: Open terminal:
-+ Run:
+Run:
 docker exec -it resourcebooking_devmysql_1 /bin/bash
-+ Then run:
+Then run:
 mysql -uroot
 >> use amino
 
