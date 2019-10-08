@@ -1,0 +1,21 @@
+{% extends 'page.twig' %}
+{% block extracss %}
+{% endblock %}
+
+{% block main %}
+    <div class="grid-container">
+        <div class="grid-x grid-padding-x">
+            <div class="row">
+                <h1>Import EPG data</h1>
+                <form method="post" action="{{ data.uri }}" enctype="multipart/form-data">
+                    <div>
+                        <label>Upload a file to import
+                            <input type="file" name="upload">
+                        </label>
+                    </div>
+                    <button type="submit" class="button">upload</button>
+                </form>
+            </div>
+        </div>
+    </div>    
+{% endblock %}      

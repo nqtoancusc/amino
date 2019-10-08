@@ -1,0 +1,15 @@
+{% extends 'page.twig' %}
+{% block extracss %}
+{% endblock %}
+
+{% block main %}
+    <div class="grid-container">
+        <div class="grid-x grid-padding-x">
+            <div class="row">
+                <h1>You are importing EPG data from {{data.importedFileName}} file</h1>
+                <a href="?confirmed" class="button">Yes, confirm</a>
+                <a href="/" class="button">No, back</a>
+            </div>
+        </div>
+    </div>    
+{% endblock %}      

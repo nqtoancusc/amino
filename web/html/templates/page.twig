@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amino</title>
+<link rel="stylesheet" href="/html/lib/foundation/css/foundation.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/html/lib/fonts/icofont/material-icons.css" rel="stylesheet">
+<link rel="stylesheet" href="/html/css/default.css" rel="stylesheet">
+<script  type="text/javascript" src="/html/lib/foundation/js/vendor/jquery.js"></script>
+<script  type="text/javascript" src="/html/lib/foundation/js/vendor/foundation.min.js"></script>
+<script  type="text/javascript" src="/html/lib/foundation/js/app.js"></script>
+{% block extracss %}{% endblock %}
+{% block extrajs %}{% endblock %}
+</head>
+<body>
+<header>
+    <div class="grid-x">
+        <div class="small-12">
+            Amino - Importer
+        </div>
+    </div>
+    {% if data.prompt %}
+        <div id="prompt" class="prompt callout {{ data.prompt.type }}" style="z-index: 1000;">
+                <p>{{ data.prompt.message }}</p>
+        </div>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                    setTimeout(function () {
+                            $('#prompt').fadeOut("slow");
+                    }, 6000);
+            });
+    </script>
+    {% endif%}
+</header>
+<main>
+{% block main %}{% endblock %}
+</main>
+<footer>
+    <div class="grid-x">
+        <div class="small-12">
+        </div>
+    </div>
+</footer>
+</body>
+</html>
