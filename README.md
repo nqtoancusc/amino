@@ -21,4 +21,4 @@ Run the following commands to build docker images and load docker images to cont
 - docker exec -it <mysql_docker_container_name> /bin/bash  
 - Use database from terminal:
 mysql -uroot
->> use mydb
+use mydb
