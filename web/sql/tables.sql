@@ -1,7 +1,7 @@
-drop database if exists amino;
-create database amino default charset=utf8 collate=utf8_swedish_ci;
-use amino;
-grant all privileges on amino.* to amino@localhost identified by 'amino';
+drop database if exists mydb;
+create database mydb default charset=utf8 collate=utf8_swedish_ci;
+use mydb;
+grant all privileges on mydb.* to mydb@localhost identified by 'mydb';
 
 CREATE TABLE `service_livetv_channel` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
