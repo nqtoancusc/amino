@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Amino</title>
+<title>Calendar</title>
 <link rel="stylesheet" href="/html/lib/foundation/css/foundation.min.css" rel="stylesheet">
 <link rel="stylesheet" href="/html/lib/fonts/icofont/material-icons.css" rel="stylesheet">
 <link rel="stylesheet" href="/html/css/default.css" rel="stylesheet">
@@ -16,22 +16,17 @@
 </head>
 <body>
 <header>
-    <div class="grid-x">
-        <div class="small-12">
-            Importer
-        </div>
-    </div>
     {% if data.prompt %}
         <div id="prompt" class="prompt callout {{ data.prompt.type }}" style="z-index: 1000;">
-                <p>{{ data.prompt.message }}</p>
+            <p>{{ data.prompt.message }}</p>
         </div>
         <script type="text/javascript">
             $(document).ready(function () {
-                    setTimeout(function () {
-                            $('#prompt').fadeOut("slow");
-                    }, 6000);
+                setTimeout(function () {
+                    $('#prompt').fadeOut("slow");
+                }, 6000);
             });
-    </script>
+        </script>
     {% endif%}
 </header>
 <main>

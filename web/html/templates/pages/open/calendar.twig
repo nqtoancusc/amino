@@ -1,0 +1,55 @@
+{% extends 'pages/open_page.twig' %}
+{% block extrajs %}
+{% endblock %}
+{% block article %}
+
+<div class="grid-x">
+    <div class="cell small-12 medium-1">
+    </div>
+    <div class="cell small-12 medium-10 clearfix">
+        <div class="calendar">
+            <div class="cell small-12">
+                <h1 class="text-center">Calendar</h1>
+            </div>
+            <form method="POST" action="{{data.uri}}">
+                <input type="hidden" name="base_date" value="{{data.base_date}}">
+                <div class="cell small-4"></div>
+                <div class="cell small-1"> 
+                    <button type="submit" name="navigation" value="previous" class="button">Previous</button>
+                </div>        
+                <div class="cell small-2"></div>
+                <div class="cell small-1">
+                    <button type="submit" name="navigation" value="next" class="button">Next</button>
+                </div>     
+                <div class="cell small-4"></div>
+            </form>
+                
+            <div class="cell small-12 medium-1"></div>    
+            {% for dayofweek in data.day_of_weeks %}
+                <div class="cell small-12 medium-1">
+                    <time><h2>{{ dayofweek }}</h2></time>
+                </div>
+            {% endfor %}
+            <div class="cell small-12 medium-1"></div>
+            
+            {% for week in data.weeks %}
+                <div class="cell small-12 medium-1"></div>
+                    <div class="cell small-12 medium-1"></div>
+                    {% for day in week %}
+                        <div class="col-xs-12">
+                            <h3>{{ data.weeks[day] }}</h3>
+                        </div>
+                    {% endfor %}
+                    <div class="cell small-12 medium-1"></div>
+                </div>
+            {% endfor %}
+            
+        </div>
+    </div>
+    <div class="cell medium-1"></div>
+</div>
+
+<script>
+  $(document).foundation();
+</script>
+{% endblock %}

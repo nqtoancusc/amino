@@ -4,14 +4,11 @@ define ('ENVIRONMENT','development');
 
 switch (ENVIRONMENT) {
 	case 'development':
-		define('HOSTNAME', 'http://'.$_SERVER['HTTP_HOST']);
-		define('DB_HOST','devmysql');
-		define('DB_ROOT_USER','root');
-		define('DB_ROOT_PASSWORD','');
-		define('DB_SCHEME','mydb');
-
-		define('DB_USER','root');
-		define('DB_PASSWORD', '');
+		define('HOSTNAME', 'YOUR_HOST_NAME');
+		define('DB_HOST','YOUR_DB_HOST_NAME');
+		define('DB_SCHEME','YOUR_DB_NAME');
+		define('DB_USER','YOUR_DB_USER_NAME');
+		define('DB_PASSWORD', 'YOUR_DB_PASWWORD');
 		break;
 	case 'production':
 		break;
