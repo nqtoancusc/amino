@@ -40,7 +40,7 @@ class CalendarFactory {
 	for($d=1; $d<=31; $d++) {
 	    $time=mktime(12, 0, 0, $current_month, $d, $current_year);
 	    if (date('m', $time) == $current_month) {
-		$day = date('Y-m-d', $current_month);
+		$day = date('Y-m-d', $time);
 		$weeks[$w][$day] = date('d', $time);
 		// Week number increases having 7 days 
 		if ((($d + $same_day_last_month) % 7) == 0) {
@@ -56,29 +56,28 @@ class CalendarFactory {
 	// If current month is December, next month belongs to next year
 	if ($current_month == 12) {
 	    $next_year = date('Y', strtotime("+1 year",strtotime($base_date)));
-	}
+            // Include more days if Week number is less than 7
+            if(7 > count($weeks[$w])) {
+                for($j = count($weeks[$w]); $j < 7; $j++) {
+                    $time=mktime(12, 0, 0, $next_month, $next_day++, $next_year);
+                    if (date('m', $time)==$next_month) {
+                        $day = date('Y-m-d', $time);
+                        $weeks[$w][$day] = date('d', $time);
+                    }
+                }
+            }
 
-	// Include more days if Week number is less than 7
-	if(7 > count($weeks[$w])) {
-	    for($j = count($weeks[$w]); $j < 7; $j++) {
-		$time=mktime(12, 0, 0, $next_month, $next_day++, $next_year);
-		if (date('m', $time)==$next_month) {
-		    $day = date('Y-m-d', $time);
-		    $weeks[$w][$day] = date('d', $time);
-		}
-	    }
-	}
-
-	// If week number is 4, add the fifth week
-	if ($w == 4) {
-	    $w++;
-	    for($j = 1; $j <= 7; $j++) {
-		$time=mktime(12, 0, 0, $next_month, $next_day++, $next_year);
-		if (date('m', $time)==$next_month) {
-		    $day = date('Y-m-d', $time);
-		    $weeks[$w][$day] = date('d', $time);
-		}
-	    }
+            // If week number is 4, add the fifth week
+            if ($w == 4) {
+                $w++;
+                for($j = 1; $j <= 7; $j++) {
+                    $time=mktime(12, 0, 0, $next_month, $next_day++, $next_year);
+                    if (date('m', $time)==$next_month) {
+                        $day = date('Y-m-d', $time);
+                        $weeks[$w][$day] = date('d', $time);
+                    }
+                }
+            }
 	}
 	
 	return $weeks;
